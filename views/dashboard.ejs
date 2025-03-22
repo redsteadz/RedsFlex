@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css"> <!-- Link your CSS -->
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, Student <%= student.id %>!</h1>
+        <h2>Your Enrolled Courses</h2>
+
+        <% if (student.courses.length === 0) { %>
+            <p>You are not enrolled in any courses.</p>
+        <% } else { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Code</th>
+                        <th>Instructor</th>
+                        <th>Credits</th>
+                        <th>Schedule</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% student.courses.forEach(course => { %>
+                        <tr>
+                            <td><%= course.code %></td>
+                            <td><%= course.instructor %></td>
+                            <td><%= course.credits %></td>
+                            <td>
+                                <% course.schedule.forEach(slot => { %>
+                                    <div><%= slot.day %>: <%= slot.time %></div>
+                                <% }) %>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } %>
+
+        <form action="/api/logout" method="POST">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+</body>
+</html>

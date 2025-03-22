@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Registration System</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-header">
+        <h1>Course Registration</h1>
+        <p>Sign in to your account</p>
+      </div>
+
+      <div class="role-selector">
+        <button class="role-btn active" data-role="student">
+          <i class="fas fa-graduation-cap"></i>
+          Student
+        </button>
+        <button class="role-btn" data-role="admin">
+          <i class="fas fa-user-cog"></i>
+          Admin
+        </button>
+      </div>
+
+      <div class="error-message" id="errorMessage"></div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label id="identifierLabel">Roll Number</label>
+          <input
+            type="text"
+            id="identifier"
+            name="identifier"
+            placeholder="22F-XXXX"
+            required
+          />
+        </div>
+
+        <div class="form-group" id="passwordGroup" style="display: none">
+          <label>Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+          />
+        </div>
+
+        <button type="submit" class="submit-btn">Sign In</button>
+      </form>
+    </div>
+
+    <script src="/js/homePage.js"></script>
+  </body>
+</html>
