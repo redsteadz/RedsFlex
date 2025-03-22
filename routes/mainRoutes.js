@@ -14,7 +14,7 @@ router.get('/dashboard', authMiddleware, async (req, res) => {
     let r = req.session.sessionId;
     if (type === 'student') {
       console.log("The id is", r)
-      const student = await Student.findOne({id:r});
+      const student = await Student.findOne({id:r}).populate('courses').exec();
       console.log("Student is", student)
       if (!student) return res.status(404).send('Student not found');
 

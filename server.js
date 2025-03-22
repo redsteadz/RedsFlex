@@ -30,10 +30,6 @@ mongoose.connect(process.env.MONGO_URI, {})
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
-// Page routes
-
-// API routes 
-
 
 const logger = require('./middleware/logger');
 app.use(logger);
@@ -42,8 +38,8 @@ app.use(upload.none());
 app.use('/', mainRoutes);
 const studentRoutes = require('./routes/apiStudents');
 const AdminRoutes = require('./routes/apiAdmin');
-app.use('/api/student', studentRoutes);  // Now all student-related APIs start with /api
-app.use('/api/admin', AdminRoutes);  // Now all admin-related APIs start with /api
+app.use('/api/student', studentRoutes);
+app.use('/api/admin', AdminRoutes);
 
 
 const PORT = process.env.PORT || 5000;
